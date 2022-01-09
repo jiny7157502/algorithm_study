@@ -13,13 +13,10 @@ for _ in range(N):
 # set 함수로 중복 제거 후 리스트 형으로 변환
 array = list(set(array))
 
+# 알파벳 순서대로 정렬
+array.sort()
+
 # 길이 순서대로 정렬
 array.sort(key=len)
 
-for i in range(len(array)):
-    if(len(array[i]) == len(array[i+1])):
-        for j in range()
-
-
-    real_array.append(array[i])
 print(array)
