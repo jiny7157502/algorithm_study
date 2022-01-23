@@ -4,23 +4,28 @@ N = int(sys.stdin.readline())
 
 array = []
 
-for i in range(N):
-    num = int(sys.stdin.readline())
-    array.append(num)
+final_data = []
 
-array_2 = []
-print(array)
+array = list(sys.stdin.readline().split(" "))
 
-for i in range(N):
-    for j in range(1, N):
-        print(str(array[i]) + " " + str(array[j]))
-        if i+j > len(array):
+if(len(array) == N):
+
+    array[N-1] = array[N-1].rstrip()
+
+    for i in range(N):
+        if i == N-1:
+            final_data.append(-1)
             break
-        else:
-            if array[i] < array[i+j]:
-                if i+j > len(array):
-                    print(-1)
+        for j in range(i+1, N):
+            if array[i] < array[j]:
+                final_data.append(array[j])
+                break
+            else:
+                if j+1 == len(array):
+                    final_data.append(-1)
                     break
-                else:
-                    print(array[i+j])
-                    break
+else:
+    print("입력한 개수가 맞지 않음")
+
+for data in final_data:
+    print(data, end=" ")
