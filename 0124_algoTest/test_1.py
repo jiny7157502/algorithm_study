@@ -4,7 +4,7 @@ N = int(sys.stdin.readline())
 
 # array 입력받는 코드 및 마지막 줄바꿈 처리
 array = list(sys.stdin.readline().split(" "))
-array[len(array)-1] = array[len(array)-1].rstrip() 
+array[-1] = array[-1].rstrip() 
 
 final_data = []
 
