@@ -1,40 +1,31 @@
-sentence = input()
+while True:
+    sentence = input()
 
-array = []
+    real_array = []
 
-for word in sentence:
-    if word == "[" or word == "]" or word == "(" or word == ")":
-        array.append(word)
+    temp = True
 
-real_array = []
-check = "yes"
-#[]()
-for i in range(len(array)):
-    if array[i] == "]":
-        if len(real_array) == 0:
-            check = "no"
-            break
-        else:
-            if real_array[-1] == "[":
-                real_array.pop(-1)
-            elif real_array[i-1] == ")":
-                continue
-            else:
-                check = "no"
+    if sentence == ".":
+        break
+
+    for i in range(len(sentence)):
+        if sentence[i] == "]":
+            if not real_array or real_array[-1] == '(':
+                temp = False
                 break
-    elif array[i] == ")":
-        if len(real_array) == 0:
-            check = "no"
-            break
-        else:
-            if real_array[-1] == "(":
-                real_array.pop(-1)
-            elif real_array[i-1] == "]":
-                continue
             else:
-                check = "no"
+                if real_array[-1] == "[":
+                    real_array.pop(-1)
+        elif sentence[i] == ")":
+            if not real_array or real_array[-1] == '[':
+                temp = False
                 break
-    elif array[i] == "(" or array[i] == "[":
-        real_array.append(array[i])
-
-print(check)
+            else:
+                if real_array[-1] == "(":
+                    real_array.pop(-1)
+        elif sentence[i] == "(" or sentence[i] == "[":
+            real_array.append(sentence[i])
+    if temp == True and not real_array:
+        print('yes')
+    else:
+        print('no')
