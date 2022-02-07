@@ -1,6 +1,3 @@
-import re
-
-
 def solution(num):
     
     num = list(map(str, num))
