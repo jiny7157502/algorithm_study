@@ -9,4 +9,16 @@ def solution(participant, completion):
 
 print(solution(["leo", "kiki", "eden"], ["eden", "kiki"]))
 
-print(hash())
+# 딕셔너리와 hash() 함수 사용 코드
+# def solution(participant, completion):
+#     answer = ''
+#     temp = 0
+#     dic = {}
+#     for part in participant:
+#         dic[hash(part)] = part
+#         temp += hash(part)
+#     for comp in completion:
+#         temp -= hash(comp)
+#     return dic[temp]
+
+# print(solution(["leo", "kiki", "eden"], ["eden", "kiki"]))
